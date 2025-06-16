@@ -12,13 +12,6 @@
   margin: 0;
 }
 
-/* 3. Enable keyword animations */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;
@@ -161,7 +154,7 @@ p {
   height: 22.4px;
   display: none;
   justify-content: center;
-  margin: 100px;
+  margin: 100px auto;
 }
 
 .spinner::before,
