@@ -1,7 +1,7 @@
 const khodams = [
   {
     name: "denis",
-    desc: "Khodam-nya Denis, spesialis jaga jemuran biar gak hilang!",
+    desc: `{name} tolongin {name}`,
   },
   {
     name: "dipenjara",
@@ -71,7 +71,9 @@ function play() {
   const image = document.getElementById("img");
   let random = Math.floor(Math.random() * (khodams.length + 1));
   greets.innerText = `halo ${name} khodam kamu adalah ${khodams[random].name}`;
-  text.innerText = `${khodams[random].desc}`;
+  let desc = khodams[random].desc.replace(/{name}/g, name);
+  text.innerText = desc;
+
   image.src = `assets/${khodams[random].name}.jpg`;
 }
 
