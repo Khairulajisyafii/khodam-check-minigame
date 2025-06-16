@@ -64,11 +64,27 @@ const khodams = [
     desc: "Zonk! Khodam yang suka nyamber kebaikan, tapi kadang lupa bawa berkah.",
   },
 ];
+function loader() {
+  const loading = document.getElementById("spinner");
+  const content = document.getElementById("content");
+  content.style.display = "none";
+  loading.style.display = "block";
+  setTimeout(() => {
+    content.style.display = "block";
+    loading.style.display = "none";
+  }, 5000);
+}
+
 function play() {
   const name = document.getElementById("nama").value;
   const greets = document.getElementById("a");
   const text = document.getElementById("b");
   const image = document.getElementById("img");
+  loader();
+  if (name == "") {
+    text.innerText = "tolong masukkan nama!!";
+    return;
+  }
   let random = Math.floor(Math.random() * (khodams.length + 1));
   greets.innerText = `halo ${name} khodam kamu adalah ${khodams[random].name}`;
   let desc = khodams[random].desc.replace(/{name}/g, name);
